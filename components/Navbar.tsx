@@ -27,7 +27,7 @@ function Navbar() {
           <Image
             src={Logo}
             alt="Ultra Logo"
-            className="w-[10rem] md:w-[12rem] ml-[-1rem] md:ml-[0]"
+            className="w-[10rem] md:w-[12rem] ml-[-0.5rem] md:ml-[-1.1rem]"
           />
         </div>
 
@@ -149,7 +149,7 @@ function Navbar() {
                 <li
                   key={language}
                   onClick={() => setSelectedLanguage(language)}
-                  className="flex items-center gap-[rem] md:gap-[2rem]"
+                  className="flex items-center gap-[1rem] md:gap-[2rem]"
                 >
                   <span className="w-4 flex justify-center">
                     {selectedLanguage === language && <FaCheck className="text-white" />}
