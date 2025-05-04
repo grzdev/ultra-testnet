@@ -7,6 +7,9 @@ import { MdClose } from 'react-icons/md'
 import { FaSearch } from 'react-icons/fa'
 import { CgProfile } from 'react-icons/cg'
 import { PieArcLabel, PieArcSeries, PieChart } from 'reaviz'
+import { IoMdArrowDropright } from 'react-icons/io'
+import { IoMdArrowDropdown } from 'react-icons/io'
+import { HiArrowTurnLeftUp } from 'react-icons/hi2'
 
 export default function Home() {
   const [searchValue, setSearchValue] = useState('')
@@ -27,11 +30,18 @@ export default function Home() {
     { key: 'AVAILABLE FUNDS', data: 70 },
   ]
 
+  //toggle permissions
+  const [isPermissionsOpen, setIsPermissionsOpen] = useState(false)
+
+  const togglePermissions = () => {
+    setIsPermissionsOpen(!isPermissionsOpen)
+  }
+
   return (
     <div className="relative">
       <Navbar />
 
-      {/* search bar */}
+      {/* mobile search bar */}
       <div className="flex justify-center items-center h-[6rem] md:h-[0] mt-[-1rem] bg-[#7650C7] ">
         <div className="flex md:hidden text-center relative  ">
           <input
@@ -79,6 +89,7 @@ export default function Home() {
 
         <div className="w-full h-[0.1rem] bg-gray-300" />
 
+        {/* desktop pie chart */}
         <div className="hidden md:flex flex-row justify-between items-center ">
           <PieChart
             id="simple"
@@ -93,7 +104,6 @@ export default function Home() {
               />
             }
           />
-
           <div className="flex flex-col justify-center items-end gap-[0.5rem]">
             <h1 className="text-[1.3rem] font-normal">
               Staked for Power - <span className="font-semibold">10.00000000 UOS</span>
@@ -107,6 +117,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* mobile pie chart */}
         <div className="flex md:hidden flex-col justify-center items-center">
           <PieChart
             id="simple"
@@ -121,7 +132,6 @@ export default function Home() {
               />
             }
           />
-
           <div className="flex flex-col justify-center items-center gap-[0.2rem]">
             <h1 className="text-[1rem] font-normal">
               Staked for Power - <span className="font-semibold">10.00000000 UOS</span>
@@ -137,7 +147,8 @@ export default function Home() {
 
         <div className="w-full h-[0.1rem] bg-gray-300 mt-[1rem] md:mt-[0]" />
 
-        <div className="mb-[14rem] mt-[1rem] gap-[2rem] md:gap-[0] flex flex-col md:flex-row w-full justify-between items-center">
+        {/* stats div */}
+        <div className=" mt-[1rem] gap-[2rem] md:gap-[0] flex flex-col md:flex-row w-full justify-between items-center">
           {/* RAM div`` */}
           <div className="flex flex-col gap-[0.7rem] md:gap-[1rem]">
             <div className="flex flex-row w-full md:w-[25rem] justify-between items-start ">
@@ -204,6 +215,46 @@ export default function Home() {
               </h1>
               <div className="w-[7rem] md:w-[10rem] bg-gray-300 h-4 md:h-5 rounded">
                 <div className="bg-[#4F4FA6] h-4 md:h-5 rounded" style={{ width: '97%' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-[0.1rem] bg-gray-300 mt-[1rem] md:mt-[2rem]" />
+
+        {/* permissions */}
+        <div className="mb-[5rem] mt-[1rem]">
+          <div
+            className="text-[1.1rem] text-purple-500 cursor-pointer md:text-[2rem] flex flex-row items-center gap-[0.5rem] font-semibold md:font-bold"
+            onClick={togglePermissions}
+          >
+            Permissions{' '}
+            <span className="text-[2.5rem]">
+              {isPermissionsOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+            </span>
+          </div>
+
+          <div
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              isPermissionsOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="p-2 md:p-4 bg-gray-100 rounded-lg">
+              <div className="w-[20rem] md:w-[50rem] h-[6rem] md:h-[4rem] text-[0.8rem] md:text-[1.1rem] font-semibold flex flex-col md:flex-row gap-[0.5rem] md:gap-[1rem] px-[0.5rem] md:px-[2rem] bg-white rounded-lg shadow-md flex justify-center md:justify-start items-start md:items-center">
+                <h1 className="mr-[0] md:mr-[2rem]">owner</h1>
+                <h1>+1/1</h1>
+                <h1>EOS7PN5NHRkcoh1QJbeXtt2UKYENKEmNpjBVD</h1>
+              </div>
+              <div className="flex flex-row ml-[0.2rem] md:ml-[1rem]">
+                <h1 className="text-[2rem] md:text-[3rem] font-semibold">
+                  <HiArrowTurnLeftUp />
+                </h1>
+
+                <div className="w-[20rem] mt-[1rem] md:w-[50rem] h-[6rem] md:h-[4rem] text-[0.8rem] md:text-[1.1rem] font-semibold flex flex-col md:flex-row gap-[0.5rem] md:gap-[1rem] px-[0.5rem] md:px-[2rem] bg-white rounded-lg shadow-md flex justify-center md:justify-start items-start md:items-center">
+                  <h1 className="mr-[0] md:mr-[2rem]">active</h1>
+                  <h1>+1/1</h1>
+                  <h1>EOS7PN5NHRkcoh1QJbeXtt2UKYENKEmNpjBVD</h1>
+                </div>
               </div>
             </div>
           </div>
