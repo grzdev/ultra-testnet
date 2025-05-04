@@ -126,7 +126,7 @@ export default function Home() {
 
       {/* transactions */}
       <div className="px-[1rem] md:px-[2rem]">
-        <div className="w-full p-[2rem] h-[40rem] md:h-[35rem] border-2 border-gray-300 rounded-xl">
+        <div className="w-full p-[2rem] maxH-[42rem] md:maxH-[35rem] border-2 border-gray-300 rounded-xl">
           <h1 className="text-[1.1rem] text-purple-500 cursor-pointer md:text-[1.5rem] flex flex-row items-center gap-[0.5rem] font-semibold md:font-bold">
             Transactions
           </h1>
