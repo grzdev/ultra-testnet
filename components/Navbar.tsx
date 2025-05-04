@@ -24,7 +24,11 @@ function Navbar() {
     <div>
       <nav className="flex justify-between items-center py-2 md:py-[1.5rem] px-4 md:px-[2rem] bg-[#7650C7] z-10 relative">
         <div>
-          <Image src={Logo} alt="Ultra Logo" className="w-auto md:w-[12rem]" />
+          <Image
+            src={Logo}
+            alt="Ultra Logo"
+            className="w-[10rem] md:w-[12rem] ml-[-1rem] md:ml-[0]"
+          />
         </div>
 
         <div className="hidden md:flex text-center relative">
